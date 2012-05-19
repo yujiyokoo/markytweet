@@ -1,0 +1,7 @@
+.DS_Store
+tmp/*
+log/*
+bin/*
+vendor/gems/*
+!vendor/gems/cache/
+.sass-cache/*

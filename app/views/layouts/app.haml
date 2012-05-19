@@ -1,0 +1,36 @@
+!!! Strict
+%html
+  %head
+    %title
+      = [@title, 'Next Tweet Generator'].compact.join(' | ')
+    = stylesheet_link_tag '../bootstrap/css/bootstrap'
+    = stylesheet_link_tag '../bootstrap/css/bootstrap-responsive'
+    = stylesheet_link_tag 'application'
+  %body
+    .container
+      .topbar
+        =link_to 'Home', url('/')
+      .hero-unit
+        - if content_for?( :pageheader )
+          #header
+            %h1
+              = yield_content( :pageheader )
+        #main
+          = yield
+        #trends
+          %blockquote.trends
+            Popular Keywords
+            %br
+            - trends.map do |th|
+              %a{ :href => url( th[:link] ) }
+                = th[:name]
+      %hr
+      #footer
+        Developed by
+        =link_to 'Yuji Yokoo', 'http://twitter.com/yujiyokoo/'
+        ="- Please read the"
+        =link_to 'fine print', url( '/fineprint.html' )
+
+    - #Placed at the end of the document so the pages load faster
+    - [ 'bootstrap.js' ].each do |jsfile|
+      %script{ :src => url( 'bootstrap/js/' + jsfile ) }

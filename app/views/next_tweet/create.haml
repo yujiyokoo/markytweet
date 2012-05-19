@@ -1,0 +1,13 @@
+- content_for :pageheader do
+  - 'Your next tweet (possibly!)'
+
+%p.explanation
+  You could (but probably not) use this as your next tweet:
+
+%blockquote.generated
+  %p
+    = @generated_tweet
+
+%h2
+  Try again?
+= partial 'shared/form', :locals => { :action_url => 'create' }

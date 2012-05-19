@@ -1,0 +1,6 @@
+- content_for :pageheader do
+  - 'What is your next tweet?'
+%p.explanation
+  Enter a keyword you want to talk about. I'll try to come up with something you can use as your next tweet!
+
+= partial 'shared/form', :locals => { :action_url => 'next_tweet/create' }
