@@ -13,6 +13,15 @@ describe "NextTweetController" do
       @doc.css( 'form[method=get]' ).should_not be_empty
     end
   end
+  context "when honey pot text is not empty" do
+    before(:each) do
+      get '/next_tweet/create', :query => 'abc', :hpot => 'trapped!'
+      @doc = Nokogiri::HTML.parse( last_response.body )
+    end
+    it "should ask user to leave the text field empty" do
+      @doc.css( 'p' ).text.should match( /please.*leave.*empty/i )
+    end
+  end
   context "when it cannot find enough search results" do
     before(:each) do
       get '/next_tweet/create', :query => 'asorecas'
