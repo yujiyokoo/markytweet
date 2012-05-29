@@ -3,4 +3,10 @@
 %p.explanation
   Enter a keyword you want to talk about. I'll try to come up with something you can use as your next tweet!
 
+%blockquote.generated.resultpage
+  %p
+
+%h2#try_again.resultpage
+  Try again?
+
 = partial 'shared/form', :locals => { :action_url => 'next_tweet/create' }

@@ -38,3 +38,10 @@ body {
 
 .hpot {
   display: none; }
+
+.resultpage {
+  display: none; }
+
+.loading {
+  vertical-align: none;
+  display: none; }

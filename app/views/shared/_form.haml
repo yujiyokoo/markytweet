@@ -1,7 +1,8 @@
 = form_tag action_url, :method => :get do
   = label_tag 'query', :for => 'query'
-  = text_field_tag 'query', :class => 'main', :id => 'query', :placeholder => 'Keywerd here'
+  = text_field_tag 'query', :class => 'main', :id => 'input_query', :placeholder => 'Keywerd here'
   .hpot
     = label_tag 'Please leave this field blank', :for => 'hpot', :class => 'hpot'
     = text_field_tag 'hpot', :id => 'hpot', :placeholder => 'Please leave this blank', :class => 'hpot'
-  = button_tag 'Submit', :type => 'submit'
+  = button_tag 'Submit', :id => 'generate_button', :type => 'submit'
+  = tag :img, :src => url('/images/loading.gif'), :class => 'loading'
