@@ -1,4 +1,7 @@
 MarkyTweet.controllers :home do
+  register Padrino::Cache
+  enable :caching
+
   layout :app
   # get :index, :map => "/foo/bar" do
   #   session[:foo] = "bar"
@@ -20,8 +23,18 @@ MarkyTweet.controllers :home do
   # end
 
   get :index, :map => '/' do
+    expires_in 1800
     @title = 'Home'
     render 'home/index'
   end
   
+  get :about, :map => '/about', :cache => true do
+    expires_in 1800
+    render 'home/about'
+  end
+
+  get :fineprint, :map => '/fineprint', :cache => true do
+    expires_in 1800
+    render 'home/fineprint'
+  end
 end

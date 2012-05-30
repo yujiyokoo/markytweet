@@ -45,3 +45,7 @@ body {
 .loading {
   vertical-align: none;
   display: none; }
+
+.topbar li {
+  display: inline;
+  padding-right: 1em; }

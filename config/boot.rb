@@ -27,3 +27,6 @@ Padrino.after_load do
 end
 
 Padrino.load!
+
+Encoding.default_external = 'ASCII-8BIT'
+

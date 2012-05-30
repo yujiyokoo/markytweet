@@ -1,0 +1,23 @@
+- content_for :pageheader do
+  - 'About this site'
+%p.explanation
+  This is a small web application developed by
+  %a{ :href => "http://twitter.com/yujiyokoo"}
+    @yujiyokoo
+  just for fun.
+%p
+  It is yet another random string generator from Twitter search results. It uses a customised version of
+  %a MarkyMarkov
+  \.
+%p
+  This application's source is available from
+  %a bitbucket
+  or
+  %a github
+  \.
+
+%p
+  Please read
+  %a{ :href => url( '/fineprint' ) }
+    the fine print
+  \.
