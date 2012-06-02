@@ -31,7 +31,7 @@ GIT
       padrino-core (= 0.10.6)
 
 GIT
-  remote: git@github.com:yujiyokoo/marky_markov.git
+  remote: git://github.com/yujiyokoo/marky_markov.git
   revision: 0f3ac8827d252431fdf3b8fa9a9388dbd6b6b33a
   specs:
     marky_markov (0.3.5)

@@ -11,7 +11,7 @@ gem 'sinatra-flash', :require => 'sinatra/flash'
 # Component requirements
 gem 'haml'
 gem 'sass'
-gem 'marky_markov', :git => "git@github.com:yujiyokoo/marky_markov.git"
+gem 'marky_markov', :git => "git://github.com/yujiyokoo/marky_markov.git"
 gem 'dalli'
 gem 'twitter'
 gem 'memcachier'
