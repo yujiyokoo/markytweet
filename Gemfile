@@ -14,6 +14,7 @@ gem 'sass'
 gem 'marky_markov', :git => "git@github.com:yujiyokoo/marky_markov.git"
 gem 'dalli'
 gem 'twitter'
+gem 'memcachier'
 
 # Test requirements
 gem 'rspec', :group => "test"

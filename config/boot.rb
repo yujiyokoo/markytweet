@@ -28,5 +28,8 @@ end
 
 Padrino.load!
 
+# To prevent error when caching utf string
 Encoding.default_external = 'ASCII-8BIT'
+
+# twitter gem
 

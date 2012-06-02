@@ -10,3 +10,6 @@ For the string generation, it uses a customised version of [MarkyMarkov](https:/
 For server side twitter searches, it uses memcached to cache query results.
 
 This is a small application but has a fair bit of tests in rspec (+capybara) and jasmine.
+
+If you are deploying to heroku, add apigee and memcachier.
+
