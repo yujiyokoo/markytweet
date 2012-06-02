@@ -2,39 +2,33 @@ require 'marky_markov'
 require 'json'
 
 class TweetGenerator
+  # this is to be called with a keyword
   def self.generate( query )
     return "Please provide a keyword." if query == nil || query.empty?
 
     search_results = TwitterProxy.search( query )
 
-    if search_results.nil? ||  search_results.empty?
-      return "Sorry, but something has failed."
-    elsif search_results[:error]
-      return "Sorry, there was an error: " + search_results[:error]
-    elsif search_results[:results].size < 10
-      return "Sorry, but I cannot find enough information about that word."
-    else
-      paragraph = search_results[:results].map{ |elem| elem['text'] }.join(".\n")
-
-      mm = MarkyMarkov::TemporaryDictionary.new(1)
-      mm.parse_string( paragraph )
-
-      return mm.generate_n_sentences(2)
-    end
+    self.gen_sentence( search_results )
   end
+
+  # this is to be called when twitter query is done in JS
   def self.generate_from_results( results )
-    return "Please provide a keyword." if results == nil || results.empty?
+    if( results[:results] )
+      results[:results] = results[:results].map{ |arr| arr[1] }
+    end
 
-    search_results = results
+    self.gen_sentence( results )
+  end
 
-    if search_results.nil? ||  search_results.empty?
+  def self.gen_sentence( input_hash )
+    if input_hash.nil? ||  input_hash.empty?
       return "Sorry, but something has failed."
-    elsif search_results[:error]
-      return "Sorry, there was an error: " + search_results[:error]
-    elsif search_results[:results].nil? || search_results[:results].size < 10
+    elsif input_hash[:error]
+      return "Sorry, there was an error: " + input_hash[:error]
+    elsif input_hash[:results].nil? || input_hash[:results].size < 10
       return "Sorry, but I cannot find enough information about that word."
     else
-      paragraph = search_results[:results].map{ |arr| arr[1] }.map{ |elem| elem['text'] }.join(".\n")
+      paragraph = input_hash[:results].map{ |elem| elem['text'] }.join(".\n")
 
       mm = MarkyMarkov::TemporaryDictionary.new(1)
       mm.parse_string( paragraph )

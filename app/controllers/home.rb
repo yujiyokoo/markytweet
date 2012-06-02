@@ -22,19 +22,19 @@ MarkyTweet.controllers :home do
   #   "Hello world!"
   # end
 
-  get :index, :map => '/' do
-    expires_in 1800
+  get :index, :map => '/', :cache => true do
+    expires_in 300
     @title = 'Home'
     render 'home/index'
   end
   
   get :about, :map => '/about', :cache => true do
-    expires_in 1800
+    expires_in 300
     render 'home/about'
   end
 
   get :fineprint, :map => '/fineprint', :cache => true do
-    expires_in 1800
+    expires_in 300
     render 'home/fineprint'
   end
 end

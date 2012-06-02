@@ -102,5 +102,21 @@ $(document).ready( function() {
     $('body')
   );
   ui.init( $('#generate_button') );
+  if( getParameterByName( 'query' ) ) {
+    $('input#input_query').val( getParameterByName( 'query' ) );
+    $('input#generate_button').trigger( 'click' );
+  }
 });
 
+// from http://stackoverflow.com/questions/901115/get-query-string-values-in-javascript
+function getParameterByName(name)
+{
+  name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+  var regexS = "[\\?&]" + name + "=([^&#]*)";
+  var regex = new RegExp(regexS);
+  var results = regex.exec(window.location.search);
+  if(results == null)
+    return "";
+  else
+    return decodeURIComponent(results[1].replace(/\+/g, " "));
+}

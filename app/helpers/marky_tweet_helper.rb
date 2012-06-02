@@ -5,7 +5,7 @@ MarkyTweet.helpers do
     TwitterProxy.global_trends[:results].map { |e|
       {
         :name => "#{e.name}#{e.promoted_content ? '(promoted)' : ''}",
-        :link => url( "/next_tweet/create?query=" + TwitterProxy.normalise_n_escape( e.name ) )
+        :link => url( "/?query=" + TwitterProxy.normalise_n_escape( e.name ) )
       }
     }
   end
